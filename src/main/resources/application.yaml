@@ -2,12 +2,35 @@ server:
   servlet:
     context-path: /community
 
+community:
+  path:
+    domain: http://localhost:8080
+
 spring:
   datasource:
     url: jdbc:mysql://localhost:3307/community?serverTimezone=Asia/Shanghai
-    username: root
-    password: 123
+    username: ENC(K661mbiLsAACO8I/5fR8VQ==)
+    password: ENC(evCj1EVF/t2D6cruISZQAA==)
     driver-class-name: com.mysql.cj.jdbc.Driver
+  mail:
+    host: smtp.qq.com
+    port: 465
+    protocol: smtp
+    username: ENC(ZcPIztUduubcpGIJYvAs7Pjkls8in0W6OOJgjRoU1/c=)
+    password: ENC(ivw+ngsqOfBT94VKPGE1XgGxuzGya+vJ8prJDmZXBgw=)  # 授权码
+    default-encoding: UTF-8
+    properties:
+      mail:
+        transport:
+          protocol: smtp
+        smtp:
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+          port: ${spring.mail.port}
+          auth: true
+          starttls:
+            enable: true
+            required: true
 
 mybatis-plus:
   mapper-locations: classpath:mybatis/mapper/*.xml

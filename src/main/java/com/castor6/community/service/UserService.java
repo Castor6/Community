@@ -2,6 +2,8 @@ package com.castor6.community.service;
 
 import com.castor6.community.bean.User;
 
+import java.util.Map;
+
 /**
  * @author castor6
  * @version v1.0
@@ -10,4 +12,6 @@ import com.castor6.community.bean.User;
  */
 public interface UserService {
     User findUserById(int id);
+    Map<String, Object> register(User user);
+    int activation(int userId, String code);
 }
