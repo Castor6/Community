@@ -1,5 +1,6 @@
 package com.castor6.community.service;
 
+import com.castor6.community.bean.LoginTicket;
 import com.castor6.community.bean.User;
 
 import java.util.Map;
@@ -14,4 +15,9 @@ public interface UserService {
     User findUserById(int id);
     Map<String, Object> register(User user);
     int activation(int userId, String code);
+    Map<String, Object> login(String username, String password, long expiredSeconds);
+    void logout(String ticket);
+    LoginTicket findLoginTicket(String ticket);
+    int updateHeader(int userId, String headerUrl);
+    int changePassword(int userId, String password, String salt);
 }
